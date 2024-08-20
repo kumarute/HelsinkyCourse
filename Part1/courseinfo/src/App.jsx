@@ -1,16 +1,18 @@
 const App= ()=> {
-  const course = 'Half Stack application development'
-  const exercises= [
-    {name:'Fundamentals of React',number_exercises:10},
-    {name:'Using props to pass data',number_exercises:7},
-    {name:'State of a component',number_exercises:14}
+  const course = {
+    name:'Half Stack application development',
+    parts:[
+    {name:'Fundamentals of React',number_parts:10},
+    {name:'Using props to pass data',number_parts:7},
+    {name:'State of a component',number_parts:14}
   ]
+}
 
   return(
     <>
       <Header course={course}/>
-      <Content exercises={exercises}/>
-      <Total exercises={exercises}/>
+      <Content parts={course.parts}/>
+      <Total parts={course.parts}/>
     </>
   )
 }
@@ -18,7 +20,7 @@ const App= ()=> {
 const Header=(props)=>{
   return(
     <div>
-      <h1>{props.course}</h1>
+      <h1>{props.course.name}</h1>
     </div>
   )
 }
@@ -26,7 +28,7 @@ const Header=(props)=>{
 const Part=(props)=>{
   return(
     <div>
-      <p>{props.name}: {props.exercises}</p>
+      <p>{props.name}: {props.number_parts}</p>
     </div>
   )
 }
@@ -35,22 +37,22 @@ const Part=(props)=>{
 const Content = (props) => {
   return (
     <>
-    <Part name={props.exercises[0].name} exercises={props.exercises[0].number_exercises}/>
-    <Part name={props.exercises[1].name} exercises={props.exercises[1].number_exercises}/>
-    <Part name={props.exercises[2].name} exercises={props.exercises[2].number_exercises}/>
+    <Part name={props.parts[0].name} parts={props.parts[0].number_parts}/>
+    <Part name={props.parts[1].name} parts={props.parts[1].number_parts}/>
+    <Part name={props.parts[2].name} parts={props.parts[2].number_parts}/>
 
     </>
   );
 }
 const Total=(props)=>{
-  let total_exercises=0
-  for (let i=0;i<props.exercises.length;i++){
-    total_exercises+=props.exercises[i].number_exercises
+  let total_parts=0
+  for (let i=0;i<props.parts.length;i++){
+    total_parts+=props.parts[i].number_parts
   }
-  console.log (total_exercises)
+  console.log (total_parts)
   return(
     <div>
-      <p>The total nº of exercises is {total_exercises}</p>
+      <p>The total nº of parts is {total_parts}</p>
     </div>
   )
 }
