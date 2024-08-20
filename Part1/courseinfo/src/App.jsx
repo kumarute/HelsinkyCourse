@@ -52,7 +52,7 @@ const Total=(props)=>{
   console.log (total_parts)
   return(
     <div>
-      <p>The total nº of parts is {total_parts}</p>
+      <p>The total nº of exercises is {total_parts}</p>
     </div>
   )
 }
